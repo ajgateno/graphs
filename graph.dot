@@ -1,0 +1,13 @@
+digraph pipeline {
+    rankdir=LR;
+    node [shape=box];
+
+    // a comment
+    start [label="Start"];
+    start -> parse -> validate -> render;
+    parse -> "error handler";
+    "error handler" -> start;
+    validate -> render [label="ok"];
+    /* block comments work too */
+    render -> done;
+}
